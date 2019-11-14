@@ -1,13 +1,25 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
 
 // create a component
 const ColorScreen = () => {
+    const [colors, setColors] = useState([]);
+    console.log(colors);
+
     return (
         <View>
-            <Button title='Color' />
-            <View style={{ height: 100, width: 100, backgroundColor: randomRgb() }} />
+            <Button title='Color' onPress={() => {
+               setColors([...colors, randomRgb()])
+            }}/>
+            <FlatList
+               keyExtractor={item => item}
+               data={colors}
+               renderItem={({ item }) => {
+                   return (
+                <View style={{ height: 100, width: 100, backgroundColor: randomRgb() }} />
+                );
+               }} />
         </View>
     );
 };

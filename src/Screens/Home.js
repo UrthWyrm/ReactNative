@@ -23,6 +23,9 @@ const Home = ({ navigation }) => {
                 <Button
                     onPress={() => navigation.navigate('Color')} 
                     title="Go To Color"/>
+                <Button
+                    onPress={() => navigation.navigate('Square')} 
+                    title="Go To Square"/>
             </View>
         );
     
